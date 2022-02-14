@@ -1,45 +1,46 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyserTest;
+using System;
 
 namespace MoodAnalyserTest
 {
     [TestClass]
     public class MoodAnalyserTest
     {
+        private string message;
+
         /// <summary>
-        /// TC 1.1: Given “I am in Sad Mood” message Should Return SAD.
+        /// Parameterised Constructor.
         /// </summary>
-        [TestMethod]
-        public void GivenSadMoodShouldReturnSAD()
+        /// <param name="message"></param>
+       // public MoodAnalyser(string message)
+        //{
+         //   this.message = message;
+        //}
+
+        public string AnalyseMood()
         {
-            // Arrange
-            string expected = "SAD";
-            string message = "I am in Sad Mood";
-            MoodAnalyser moodAnalyse = new MoodAnalyser(message);
+            try
+            {
+                if (this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.Empty_Message, "Mood should not be Empty");
+                }
 
-            // Act
-            string mood = moodAnalyse.AnalyseMood();
 
-            // Assert
-            Assert.AreEqual(expected, mood);
-        }
-        /// <summary>
-        /// TC 1.2  & 2.1: Given “I am in HAPPY Mood” and null message Should Return HAPPY
-        /// </summary>
-        [TestMethod]
-        [DataRow("I am in HAPPY Mood")]
-        [DataRow(null)]
-        public void GivenHAPPYMoodShouldReturnHappy(string message)
-        {
-            // Arrange
-            string expected = "HAPPY";
-            MoodAnalyser moodAnalyse = new MoodAnalyser(message);
-
-            // Act
-            string mood = moodAnalyse.AnalyseMood();
-
-            // Assert
-            Assert.AreEqual(expected, mood);
+                if (this.message.Contains("Sad"))
+                {
+                    return "SAD";
+                }
+                else
+                {
+                    return "HAPPY";
+                }
+            }
+            catch (NullReferenceException)
+            {
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
+            }
         }
     }
 }
