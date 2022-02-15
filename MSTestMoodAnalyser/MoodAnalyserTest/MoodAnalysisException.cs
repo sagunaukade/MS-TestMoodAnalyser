@@ -7,7 +7,7 @@ using MoodAnalyserTest;
 
 namespace MoodAnalyserTest
 {
-    /// <summary>
+     /// <summary>
     /// MoodAnalysisException Class For Handling Exception.
     /// </summary>
     public class MoodAnalysisException : Exception
@@ -17,7 +17,7 @@ namespace MoodAnalyserTest
         /// </summary>
         public enum ExceptionType
         {
-            NULL_MESSAGE, Empty_Message, NO_SUCH_CLASS, NO_SUCH_METHOD
+            NULL_MESSAGE, Empty_Message, NO_SUCH_CLASS, NO_SUCH_METHOD, NO_SUCH_FIELD
         }
 
         ////Creating 'type' variable of type ExceptionType

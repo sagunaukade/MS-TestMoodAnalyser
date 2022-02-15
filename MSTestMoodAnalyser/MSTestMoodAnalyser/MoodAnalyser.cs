@@ -8,9 +8,9 @@ namespace MSTestMoodAnalyser
 {
     internal class MoodAnalyser
     {
-        public MoodAnalyser() { }
+       public MoodAnalyser(){ }
 
-        private string message;
+        public string message;
         /// <summary>
         /// Parameterised Constructor.
         /// </summary>
@@ -39,10 +39,11 @@ namespace MSTestMoodAnalyser
                     return "HAPPY";
                 }
             }
-            catch (NullReferenceException)
+            catch(NullReferenceException)
             {
                 throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
             }
         }
-    }
+        
+    }  
 }

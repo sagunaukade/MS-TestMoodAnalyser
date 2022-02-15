@@ -11,6 +11,8 @@ namespace MSTestMoodAnalyser
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the MSTest mood analyser program");
+            Type type = typeof(MoodAnalyser);
+            Console.WriteLine(type.FullName);
             Console.ReadLine();
         }
     }
